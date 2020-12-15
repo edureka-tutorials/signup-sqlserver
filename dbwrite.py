@@ -27,7 +27,7 @@ def write_to_db(firstname,lastname):
     with cnxn.cursor() as cursor:
         #cur.execute("create table IF NOT EXISTS applicationdata (ID int AUTO_INCREMENT NOT NULL, firstname varchar(255), lastname varchar(255), PRIMARY KEY (ID));")
         #cur.execute('insert into applicationdata (firstname,lastname) values(%s,%s)',(firstname,lastname))
-        cursor.execute("""INSERT INTO applicationdata (firstname,lastname) VALUES (%s,%s),(firstname,lastname)""")
+        cursor.execute("INSERT INTO applicationdata (firstname,lastname) VALUES (?,?),(firstname,lastname)")
         cnxn.commit()
     cnxn.commit()
 
